@@ -1,0 +1,41 @@
+<section>
+  <h2>var</h2>
+  <p><b>Scope</p></b>: Function-scoped or globally-scoped variable.</p>
+  <p><b>Hoisting</b>: Variables are hoisted to the top of their function or global scope.</p>
+  <p><b>Reassignment</b>: Can be reassigned and redeclared.</p>
+  <pre>
+{`function example() {
+console.log(x); // undefined, due to hoisting
+var x = 5;
+console.log(x); // 5
+}`}</pre
+  >
+</section>
+
+<section>
+  <h2>let</h2>
+  <p><b>Scope</b>: Block-level scoping.</p>
+  <p><b>Hoisting</b>: Hoisted to the top of their block but not initialized.</p>
+  <p><b>Reassignment</b>: Can be reassigned but not redeclared within the same scope.</p>
+  <pre>
+{`if (true) {
+let y = 10;
+console.log(y); // 10
+}
+console.log(y); // ReferenceError: y is not defined`}</pre
+  >
+</section>
+
+<section>
+  <h2>const</h2>
+  <p><b>Scope</b>: Block-scoped.</p>
+  <p><b>Hoisting</b>: Hoisted like let but not initialized.</p>
+  <p><b>Reassignment</b>: Cannot be reassigned or redeclared. Must be initialized upon declaration.</p>
+  <pre>
+{`const z = 30;
+z = 50; // TypeError: Assignment to constant variable
+
+const obj = { key: "value" };
+obj.key = "newValue"; // Allowed`}</pre
+  >
+</section>
