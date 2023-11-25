@@ -10,11 +10,26 @@ function camelToKebabCase(str:string) {
   return str.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase();
 }
 
+const JavaConcepts = {
+  name: 'Functional Programming', 
+  items:{
+    'highOrderFunctions': {
+      name: 'High Order functions',
+      keyPoint: [
+        'Definition: Takes functions as arguments and return a function as its result', 
+        'Benefits: more modular, reusable code',
+        'Examples: eg: .map(), filter()',
+      ],
+    },
+  },
+};
+
 export const frontEnd:any = { JSConcepts, functionalProgrammingConcepts, reactCoreConcepts, reactConcepts };
-const backEnd = {}; 
+const backEnd = { JavaConcepts }; 
+const devops = { JavaConcepts }; 
+const others = { JavaConcepts };
 
-export const root = { frontEnd, backEnd };
-
+export const root = { frontEnd, backEnd, devops, others };
 
 export const getStacksByCategory = (category: string) => {
   const matchCategory  = Object.keys(root).find(item => camelToKebabCase(item) === category.toLowerCase());
