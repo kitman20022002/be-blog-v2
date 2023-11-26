@@ -29,6 +29,7 @@ const convertItem = (items:any) => {
 };
 
 export const index = async (req: Request, res: Response) => {
+  
   const { slug } = req.params;
   if (!slug) {
     return res.send([]);
@@ -36,7 +37,6 @@ export const index = async (req: Request, res: Response) => {
 
   const stacks = getStacksByCategory(slug);
   const data = Object.keys(stacks).map((stack:any, idx: any) => {
-    console.log(convertItem(stacks[stack].items));
     return { id: idx, name : stacks[stack].name, items: convertItem(stacks[stack].items) };
   });
   

@@ -11,7 +11,6 @@ const countryController = require('../../controllers/v1/countryController');
 const searchController = require('../../controllers/v1/searchController');
 const suggestController = require('../../controllers/v1/suggestController');
 const passwordController = require('../../controllers/v1/passwordController');
-const authMiddleware = require('../../middleware/authMiddleware');
 import { logger } from '../../../loaders/logger';
 import { NextFunction } from 'express';
 import * as registerValidation from '../../validations/registerValidator';
@@ -53,7 +52,6 @@ router.get('/verify/:token', registerController.verify);
 router.post('/forgot-password', passwordController.forgotPassword);
 router.post('/reset-password', passwordController.resetPassword);
 
-router.all('*', authMiddleware.isAuth);
 router.post('/events', eventController.store);
 router.get('/events', eventController.index);
 router.get('/events/:eventId', eventController.show);
